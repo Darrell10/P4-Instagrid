@@ -7,21 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B60E12F4231C1F0E001C4C15 /* convertViewToImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60E12F3231C1F0E001C4C15 /* convertViewToImage.swift */; };
 		B6E1174C231121A200F8337D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1174B231121A200F8337D /* AppDelegate.swift */; };
-		B6E1174E231121A200F8337D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1174D231121A200F8337D /* ViewController.swift */; };
-		B6E11751231121A200F8337D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6E1174F231121A200F8337D /* Main.storyboard */; };
 		B6E11753231121A600F8337D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6E11752231121A600F8337D /* Assets.xcassets */; };
 		B6E11756231121A600F8337D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6E11754231121A600F8337D /* LaunchScreen.storyboard */; };
+		B6E1175F231121D700F8337D /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6E1175D231121D700F8337D /* Delm-Medium.otf */; };
+		B6E11760231121D700F8337D /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6E1175E231121D700F8337D /* ThirstySoftRegular.otf */; };
+		B6E11762231121E100F8337D /* addPhotoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E11761231121E100F8337D /* addPhotoButton.swift */; };
+		B6E11764231121F000F8337D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E11763231121F000F8337D /* ViewController.swift */; };
+		B6E117672311225400F8337D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6E117652311225400F8337D /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B60E12F3231C1F0E001C4C15 /* convertViewToImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = convertViewToImage.swift; sourceTree = "<group>"; };
 		B6E11748231121A200F8337D /* P4 Instagrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "P4 Instagrid.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6E1174B231121A200F8337D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B6E1174D231121A200F8337D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B6E11750231121A200F8337D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B6E11752231121A600F8337D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6E11755231121A600F8337D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B6E11757231121A600F8337D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6E1175D231121D700F8337D /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Delm-Medium.otf"; path = "../../Instagrid/Instagrid/Supporting Files/Delm-Medium.otf"; sourceTree = "<group>"; };
+		B6E1175E231121D700F8337D /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ThirstySoftRegular.otf; path = "../../Instagrid/Instagrid/Supporting Files/ThirstySoftRegular.otf"; sourceTree = "<group>"; };
+		B6E11761231121E100F8337D /* addPhotoButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = addPhotoButton.swift; path = ../../Instagrid/Instagrid/Modele/addPhotoButton.swift; sourceTree = "<group>"; };
+		B6E11763231121F000F8337D /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../../Instagrid/Instagrid/Controller/ViewController.swift; sourceTree = "<group>"; };
+		B6E117662311225400F8337D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ../../Instagrid/Instagrid/View/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,12 +62,16 @@
 		B6E1174A231121A200F8337D /* P4 Instagrid */ = {
 			isa = PBXGroup;
 			children = (
+				B6E1175D231121D700F8337D /* Delm-Medium.otf */,
+				B6E1175E231121D700F8337D /* ThirstySoftRegular.otf */,
 				B6E1174B231121A200F8337D /* AppDelegate.swift */,
-				B6E1174D231121A200F8337D /* ViewController.swift */,
-				B6E1174F231121A200F8337D /* Main.storyboard */,
 				B6E11752231121A600F8337D /* Assets.xcassets */,
 				B6E11754231121A600F8337D /* LaunchScreen.storyboard */,
 				B6E11757231121A600F8337D /* Info.plist */,
+				B6E11761231121E100F8337D /* addPhotoButton.swift */,
+				B6E11763231121F000F8337D /* ViewController.swift */,
+				B60E12F3231C1F0E001C4C15 /* convertViewToImage.swift */,
+				B6E117652311225400F8337D /* Main.storyboard */,
 			);
 			path = "P4 Instagrid";
 			sourceTree = "<group>";
@@ -123,8 +135,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6E11756231121A600F8337D /* LaunchScreen.storyboard in Resources */,
+				B6E117672311225400F8337D /* Main.storyboard in Resources */,
 				B6E11753231121A600F8337D /* Assets.xcassets in Resources */,
-				B6E11751231121A200F8337D /* Main.storyboard in Resources */,
+				B6E11760231121D700F8337D /* ThirstySoftRegular.otf in Resources */,
+				B6E1175F231121D700F8337D /* Delm-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,7 +149,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6E1174E231121A200F8337D /* ViewController.swift in Sources */,
+				B6E11762231121E100F8337D /* addPhotoButton.swift in Sources */,
+				B60E12F4231C1F0E001C4C15 /* convertViewToImage.swift in Sources */,
+				B6E11764231121F000F8337D /* ViewController.swift in Sources */,
 				B6E1174C231121A200F8337D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,20 +159,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B6E1174F231121A200F8337D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B6E11750231121A200F8337D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B6E11754231121A600F8337D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				B6E11755231121A600F8337D /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		B6E117652311225400F8337D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B6E117662311225400F8337D /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -285,6 +301,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U43D64A3HX;
 				INFOPLIST_FILE = "P4 Instagrid/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -292,7 +309,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "fr.StudiOS21.P4-Instagrid";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -303,6 +320,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U43D64A3HX;
 				INFOPLIST_FILE = "P4 Instagrid/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -310,7 +328,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "fr.StudiOS21.P4-Instagrid";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
