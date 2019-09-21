@@ -40,25 +40,30 @@ class ViewController: UIViewController {
     override func loadView() {
         super.loadView()
         setUpView()
-        switch state {
-        case .layout1: layoutFirstView()
-        case .layout2 : layoutSecondView()
-        case .layout3: layoutThirdView()
-        }
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.setNeedsUpdateConstraints()
+
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
         _ = state
         self.createSwipeGesture()
     }
-    override func updateViewConstraints() {
-        super.updateViewConstraints()
-   }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        var etatState = state
+        /*switch state {
+        case .layout1: layoutFirstView()
+        case .layout2: layoutSecondView()
+        case .layout3: layoutThirdView()
+        }*/
+        if etatState == stateEnum.layout2 {
+            layoutSecondView()
+        }
+    }
     
     func setUpView(){
         contentView.addSubview(addPicture1)
