@@ -12,7 +12,6 @@
 		B6504D6523362189007D9060 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6504D5523362189007D9060 /* AppDelegate.swift */; };
 		B6504D6623362189007D9060 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6504D5623362189007D9060 /* Assets.xcassets */; };
 		B6504D6823362189007D9060 /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6504D5923362189007D9060 /* Delm-Medium.otf */; };
-		B6504D6923362189007D9060 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6504D5A23362189007D9060 /* Info.plist */; };
 		B6504D6A23362189007D9060 /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6504D5B23362189007D9060 /* ThirstySoftRegular.otf */; };
 		B6504D6B23362189007D9060 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6504D5D23362189007D9060 /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -164,7 +163,6 @@
 				B6504D6A23362189007D9060 /* ThirstySoftRegular.otf in Resources */,
 				B6504D6B23362189007D9060 /* Main.storyboard in Resources */,
 				B6504D6623362189007D9060 /* Assets.xcassets in Resources */,
-				B6504D6923362189007D9060 /* Info.plist in Resources */,
 				B6504D6823362189007D9060 /* Delm-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
