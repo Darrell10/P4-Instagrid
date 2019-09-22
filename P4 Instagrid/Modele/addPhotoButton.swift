@@ -23,7 +23,6 @@ class addPhotoButton: UIButton {
         func setup() {
             let image = UIImage(named: "Plus.png")
             backgroundColor = .white
-            //imageView?.contentMode = .scaleAspectFill
             imageEdgeInsets = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
             setImage(image, for: UIControl.State.normal)
         }

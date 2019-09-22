@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,8 @@
 		B6504D6823362189007D9060 /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6504D5923362189007D9060 /* Delm-Medium.otf */; };
 		B6504D6A23362189007D9060 /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6504D5B23362189007D9060 /* ThirstySoftRegular.otf */; };
 		B65E19F1233629F90082BE7C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6504D5D23362189007D9060 /* Main.storyboard */; };
+		B6E662A52337B2E900907742 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6E662A42337B2E900907742 /* Launch Screen.storyboard */; };
+		B6E662A72337B9D600907742 /* ArrowSwipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E662A62337B9D600907742 /* ArrowSwipe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +27,9 @@
 		B6504D5A23362189007D9060 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6504D5B23362189007D9060 /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
 		B6504D5E23362189007D9060 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B6E11748231121A200F8337D /* P4 Instagrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "P4 Instagrid.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6E11748231121A200F8337D /* Instagrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6E662A42337B2E900907742 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		B6E662A62337B9D600907742 /* ArrowSwipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowSwipe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				B6504D5323362189007D9060 /* addPhotoButton.swift */,
+				B6E662A62337B9D600907742 /* ArrowSwipe.swift */,
 			);
 			path = Modele;
 			sourceTree = "<group>";
@@ -74,6 +79,7 @@
 				B6504D5923362189007D9060 /* Delm-Medium.otf */,
 				B6504D5A23362189007D9060 /* Info.plist */,
 				B6504D5B23362189007D9060 /* ThirstySoftRegular.otf */,
+				B6E662A42337B2E900907742 /* Launch Screen.storyboard */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -97,7 +103,7 @@
 		B6E11749231121A200F8337D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B6E11748231121A200F8337D /* P4 Instagrid.app */,
+				B6E11748231121A200F8337D /* Instagrid.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -119,7 +125,7 @@
 			);
 			name = "P4 Instagrid";
 			productName = "P4 Instagrid";
-			productReference = B6E11748231121A200F8337D /* P4 Instagrid.app */;
+			productReference = B6E11748231121A200F8337D /* Instagrid.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -138,7 +144,7 @@
 				};
 			};
 			buildConfigurationList = B6E11743231121A200F8337D /* Build configuration list for PBXProject "P4 Instagrid" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 11.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -163,6 +169,7 @@
 				B65E19F1233629F90082BE7C /* Main.storyboard in Resources */,
 				B6504D6A23362189007D9060 /* ThirstySoftRegular.otf in Resources */,
 				B6504D6623362189007D9060 /* Assets.xcassets in Resources */,
+				B6E662A52337B2E900907742 /* Launch Screen.storyboard in Resources */,
 				B6504D6823362189007D9060 /* Delm-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,6 +183,7 @@
 			files = (
 				B6504D6223362189007D9060 /* ViewController.swift in Sources */,
 				B6504D6523362189007D9060 /* AppDelegate.swift in Sources */,
+				B6E662A72337B9D600907742 /* ArrowSwipe.swift in Sources */,
 				B6504D6423362189007D9060 /* addPhotoButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -317,13 +325,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U43D64A3HX;
 				INFOPLIST_FILE = "$(SRCROOT)/P4 Instagrid/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "fr.StudiOS21.P4-Instagrid";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Instagrid;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -336,13 +344,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U43D64A3HX;
 				INFOPLIST_FILE = "$(SRCROOT)/P4 Instagrid/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "fr.StudiOS21.P4-Instagrid";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Instagrid;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

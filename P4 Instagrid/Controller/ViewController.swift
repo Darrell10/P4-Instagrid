@@ -19,7 +19,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var addPicture4: addPhotoButton!
     
     @IBOutlet weak var swipeUpLabel: UILabel!
-    @IBOutlet weak var swipeUpButton: UIButton!
+    
+    @IBOutlet weak var swipeView: ArrowSwipe!
     
     @IBOutlet weak var pictureView1: UIImageView!
     @IBOutlet weak var pictureView2: UIImageView!
@@ -33,39 +34,39 @@ class ViewController: UIViewController {
     var imageTemp =  UIImageView()
     var imagePicker = UIImagePickerController()
     enum ViewDirection { case out, backIn }
-    //let imageArrowLeft = UIImage(named: "Arrow Left.png")
-    enum stateEnum { case layout1, layout2, layout3 }
-    var state: stateEnum = .layout1
     
-    override func loadView() {
-        super.loadView()
-        setUpView()
-        
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setUpView()
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
-        _ = state
-        self.createSwipeGesture()
+        createSwipeGesture()
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
-        var etatState = state
-        /*switch state {
-        case .layout1: layoutFirstView()
-        case .layout2: layoutSecondView()
-        case .layout3: layoutThirdView()
-        }*/
-        if etatState == stateEnum.layout2 {
-            layoutSecondView()
+        selectedLayout1.isHidden = false
+        selectedLayout2.isHidden = true
+        selectedLayout3.isHidden = true
+        addPicture4.isHidden = true
+        pictureView4.isHidden = true
+        orientationSwipe()
+        
+    }
+    
+    func orientationSwipe() {
+        if UIDevice.current.orientation.isPortrait {
+            swipeView.image = UIImage(named:"Arrow Up.png")
+            swipeUpLabel.text = "Swipe up to share"
+        } else if UIDevice.current.orientation.isLandscape{
+            swipeView.image = UIImage(named:"Arrow Left.png")
+            swipeUpLabel.text = "Swipe left to share"
         }
     }
     
-    func setUpView(){
+    private func setUpView(){
+        self.view.addSubview(swipeView)
         contentView.addSubview(addPicture1)
         addPicture1.isHidden = false
         addPicture1.frame = CGRect(x: 15, y: 15, width: 270, height: 130)
@@ -77,13 +78,11 @@ class ViewController: UIViewController {
         addPicture3.frame = CGRect(x: contentView.frame.width - 145, y: contentView.frame.height - 145, width: 130, height: 130)
         contentView.addSubview(addPicture4)
         addPicture4.isHidden = true
+        pictureView4.isHidden = true
     }
     
-    func presentWithSource(source: UIImagePickerController.SourceType) {
-        imagePicker.sourceType = source
-        present(imagePicker, animated: true, completion: nil)
-    }
-    // Swip function
+    
+    // MARK:Swip function
     func createSwipeGesture() {
             let swipeGestureUp = UISwipeGestureRecognizer(target: self, action: #selector(swipedByUser(_:)))
             swipeGestureUp.direction = .up
@@ -92,6 +91,7 @@ class ViewController: UIViewController {
             swipeGestureLeft.direction = .left
             self.contentView.addGestureRecognizer(swipeGestureLeft)
     }
+    
     @objc func swipedByUser(_ gesture: UISwipeGestureRecognizer) {
         convertViewToImage()
         if UIDevice.current.orientation.isPortrait {
@@ -100,6 +100,8 @@ class ViewController: UIViewController {
             moveViewHorizontally(movement: .out)
         }
     }
+    
+    // MARK:Animation contentView
     private func moveViewVertically(movement: ViewDirection) {
         switch movement {
         case .out:
@@ -129,6 +131,13 @@ class ViewController: UIViewController {
         }
     }
     
+    // MARK:Convert Image
+    
+    func presentWithSource(source: UIImagePickerController.SourceType) {
+        imagePicker.sourceType = source
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
     func convertViewToImage(){
         UIGraphicsBeginImageContextWithOptions(contentView.frame.size, view.isOpaque, 0)
         contentView.layer.render(in: UIGraphicsGetCurrentContext()!)
@@ -144,13 +153,13 @@ class ViewController: UIViewController {
     
     // MARK: Alert Function
     func alerteAction() {
-        let alerteActionSheet = UIAlertController(title: "Prendre une photo", message: "Choisissez le média", preferredStyle: .actionSheet)
-        let gallery = UIAlertAction(title: "Gallerie de photos", style: .default) { (action) in
+        let alerteActionSheet = UIAlertController(title: "Take a picture", message: "choose the media", preferredStyle: .actionSheet)
+        let gallery = UIAlertAction(title: "Photos Library", style: .default) { (action) in
             if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
                 self.presentWithSource(source: .photoLibrary)
             }
         }
-        let cancel = UIAlertAction(title: "Annuler", style: .cancel, handler: nil)
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alerteActionSheet.addAction(gallery)
         alerteActionSheet.addAction(cancel)
         if let popover = alerteActionSheet.popoverPresentationController {
@@ -160,7 +169,8 @@ class ViewController: UIViewController {
         }
         present(alerteActionSheet, animated: true, completion: nil)
     }
-    // Layout Function
+    
+    // MARK: Layout Function
     func layoutFirstView() {
         selectedLayout1.isHidden = false
         selectedLayout2.isHidden = true
@@ -203,7 +213,7 @@ class ViewController: UIViewController {
         if UIDevice.current.orientation.isPortrait {
             // Button 1
             addPicture1.frame = CGRect(x: 15, y: 15, width: 130, height: 130)
-            pictureView1.frame = addPicture1.frame
+            //pictureView1.frame = addPicture1.frame
             // Button 2
             addPicture2.frame = CGRect(x: contentView.frame.width - 145, y: 15, width: 130, height: 130)
             pictureView2.frame = addPicture2.frame
@@ -214,7 +224,7 @@ class ViewController: UIViewController {
             pictureView4.isHidden = true
             addPicture4.isHidden = true
             
-        } else if UIDevice.current.orientation.isLandscape {
+       } else if UIDevice.current.orientation.isLandscape {
             addPicture1.frame = CGRect(x: 10, y: 10, width: 110, height: 110)
             pictureView1.frame = addPicture1.frame
             // Button 2
@@ -248,8 +258,6 @@ class ViewController: UIViewController {
             pictureView4.isHidden = false
             addPicture4.frame = CGRect(x: contentView.frame.width - 145,y: contentView.frame.height - 145,width: 130,height: 130)
             pictureView4.frame = addPicture4.frame
-            
-            
         } else if UIDevice.current.orientation.isLandscape {
             // Button 1
             addPicture1.frame = CGRect(x: 10,y: 10,width: 110,height: 110)
@@ -270,41 +278,36 @@ class ViewController: UIViewController {
         }
     }
     
-    
+        // MARK: Button Action
     @IBAction func layoutView1(_ sender: Any) {
         layoutFirstView()
-        state = .layout1
     }
-    
     
     @IBAction func layoutView2(_ sender: Any) {
         layoutSecondView()
-        state = .layout2
     }
     
     @IBAction func layoutView3(_ sender: Any) {
         layoutThirdView()
-        state = .layout3
     }
-    
-    // Button Action
-    @IBAction func takePicture1(_ sender: UIButton) {
+
+    @IBAction func takePicture1(_ sender: addPhotoButton) {
         imageTemp = pictureView1
         alerteAction()
     }
     
-    @IBAction func takePicture2(_ sender: UIButton) {
+    @IBAction func takePicture2(_ sender: addPhotoButton) {
         imageTemp = pictureView2
         alerteAction()
     }
     
-    @IBAction func takePicture3(_ sender: UIButton) {
+    @IBAction func takePicture3(_ sender: addPhotoButton) {
         imageTemp = pictureView3
         alerteAction()
     }
     
     
-    @IBAction func takePicture4(_ sender: UIButton) {
+    @IBAction func takePicture4(_ sender: addPhotoButton) {
         imageTemp = pictureView4
         alerteAction()
     }
