@@ -218,7 +218,7 @@
                                             <action selector="takePicture4:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W9v-XK-HJ5"/>
                                         </connections>
                                     </button>
-                                    <imageView autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="asI-KO-9Gj">
+                                    <imageView clipsSubviews="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="asI-KO-9Gj">
                                         <rect key="frame" x="15" y="15" width="270" height="130"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="270" id="09u-rx-HwS"/>
@@ -241,7 +241,7 @@
                                             </mask>
                                         </variation>
                                     </imageView>
-                                    <imageView autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qgW-TY-hzH">
+                                    <imageView clipsSubviews="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qgW-TY-hzH">
                                         <rect key="frame" x="15" y="155" width="130" height="130"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="130" id="8c9-mh-nrt"/>
@@ -264,7 +264,7 @@
                                             </mask>
                                         </variation>
                                     </imageView>
-                                    <imageView autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cdk-09-d4S">
+                                    <imageView clipsSubviews="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cdk-09-d4S">
                                         <rect key="frame" x="155" y="155" width="130" height="130"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="110" id="1Bn-9q-Yxs"/>
@@ -287,7 +287,7 @@
                                             </mask>
                                         </variation>
                                     </imageView>
-                                    <imageView autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Rp-Vh-nm5">
+                                    <imageView clipsSubviews="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Rp-Vh-nm5">
                                         <rect key="frame" x="270" y="15" width="0.0" height="130"/>
                                         <constraints>
                                             <constraint firstAttribute="width" id="KG0-Ij-ZzY"/>

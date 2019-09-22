@@ -213,7 +213,7 @@ class ViewController: UIViewController {
         if UIDevice.current.orientation.isPortrait {
             // Button 1
             addPicture1.frame = CGRect(x: 15, y: 15, width: 130, height: 130)
-            //pictureView1.frame = addPicture1.frame
+            pictureView1.frame = addPicture1.frame
             // Button 2
             addPicture2.frame = CGRect(x: contentView.frame.width - 145, y: 15, width: 130, height: 130)
             pictureView2.frame = addPicture2.frame

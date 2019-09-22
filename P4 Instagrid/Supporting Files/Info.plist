@@ -21,16 +21,18 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>Utilisation de l'appareil photo</string>
+	<string>Application use camera</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Save Grid from application in photo gallery</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Utilisation de la photoque pour choisir une photo</string>
+	<string>Application use photo gallery to pick a picture</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Delm-Medium.otf</string>
 		<string>ThirstySoftRegular.otf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
-	<string>Main</string>
+	<string>Launch Screen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
