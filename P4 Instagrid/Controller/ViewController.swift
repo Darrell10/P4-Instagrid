@@ -87,6 +87,7 @@ class ViewController: UIViewController {
     
     // MARK:Animation contentView
     private func moveViewVertically(movement: ViewDirection) {
+        // verticall animation
         switch movement {
         case .out:
             UIView.animate(withDuration: 0.5) {
@@ -101,6 +102,7 @@ class ViewController: UIViewController {
             }
         }
     private func moveViewHorizontally(movement: ViewDirection) {
+        // Horizontall animation
         switch movement {
         case .out:
             UIView.animate(withDuration: 0.5) {
@@ -121,7 +123,7 @@ class ViewController: UIViewController {
         present(imagePicker, animated: true, completion: nil)
     }
     
-    func convertViewToImage(){
+    private func convertViewToImage(){
         // convert Grid view to an image
         UIGraphicsBeginImageContextWithOptions(contentView.frame.size, view.isOpaque, 0)
         contentView.layer.render(in: UIGraphicsGetCurrentContext()!)
@@ -136,7 +138,7 @@ class ViewController: UIViewController {
     }
     
     // MARK: Alert Function
-    func alerteAction() {
+    private func alerteAction() {
         // Show an alert to user
         let alerteActionSheet = UIAlertController(title: "Take a picture", message: "choose the media", preferredStyle: .actionSheet)
         let gallery = UIAlertAction(title: "Photos Library", style: .default) { (action) in
@@ -232,8 +234,8 @@ class ViewController: UIViewController {
         }
     }
     
-    func layoutThirdView() {
-        // second layout in grid when user push on LayoutView3 button
+    private func layoutThirdView() {
+        // third layout in grid when user push on LayoutView3 button
         if UIDevice.current.orientation.isPortrait {
             // layout when device is portrait
             // Button 1
@@ -313,6 +315,7 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    // extention for presentWithSource function
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let edite = info[.editedImage] as? UIImage {
             imageTmp.image = edite
