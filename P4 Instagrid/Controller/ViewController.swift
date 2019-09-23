@@ -31,16 +31,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var selectedLayout2: UIImageView!
     @IBOutlet weak var selectedLayout3: UIImageView!
     
-    var imageTemp =  UIImageView()
+    var imageTmp =  UIImageView()
     var imagePicker = UIImagePickerController()
     enum ViewDirection { case out, backIn }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpView()
         imagePicker.delegate = self
+        // alow user to editing picture's choice
         imagePicker.allowsEditing = true
+        // add swipe gesture
         createSwipeGesture()
     }
     
@@ -52,38 +52,22 @@ class ViewController: UIViewController {
         addPicture4.isHidden = true
         pictureView4.isHidden = true
         orientationSwipe()
-        
     }
     
     func orientationSwipe() {
         if UIDevice.current.orientation.isPortrait {
+            // if device is portrait
             swipeView.image = UIImage(named:"Arrow Up.png")
             swipeUpLabel.text = "Swipe up to share"
-        } else if UIDevice.current.orientation.isLandscape{
+        } else if UIDevice.current.orientation.isLandscape {
+            // else if device is portrait
             swipeView.image = UIImage(named:"Arrow Left.png")
             swipeUpLabel.text = "Swipe left to share"
         }
     }
     
-    private func setUpView(){
-        self.view.addSubview(swipeView)
-        contentView.addSubview(addPicture1)
-        addPicture1.isHidden = false
-        addPicture1.frame = CGRect(x: 15, y: 15, width: 270, height: 130)
-        contentView.addSubview(addPicture2)
-        addPicture2.isHidden = false
-        addPicture2.frame = CGRect(x: 15, y: contentView.frame.height - 145, width: 130, height: 130)
-        contentView.addSubview(addPicture3)
-        addPicture3.isHidden = false
-        addPicture3.frame = CGRect(x: contentView.frame.width - 145, y: contentView.frame.height - 145, width: 130, height: 130)
-        contentView.addSubview(addPicture4)
-        addPicture4.isHidden = true
-        pictureView4.isHidden = true
-    }
-    
-    
     // MARK:Swip function
-    func createSwipeGesture() {
+    private func createSwipeGesture() {
             let swipeGestureUp = UISwipeGestureRecognizer(target: self, action: #selector(swipedByUser(_:)))
             swipeGestureUp.direction = .up
             self.contentView.addGestureRecognizer(swipeGestureUp)
@@ -96,7 +80,7 @@ class ViewController: UIViewController {
         convertViewToImage()
         if UIDevice.current.orientation.isPortrait {
             moveViewVertically(movement: .out)
-        } else if UIDevice.current.orientation.isLandscape {
+        } else {
             moveViewHorizontally(movement: .out)
         }
     }
@@ -132,13 +116,13 @@ class ViewController: UIViewController {
     }
     
     // MARK:Convert Image
-    
     func presentWithSource(source: UIImagePickerController.SourceType) {
         imagePicker.sourceType = source
         present(imagePicker, animated: true, completion: nil)
     }
     
     func convertViewToImage(){
+        // convert Grid view to an image
         UIGraphicsBeginImageContextWithOptions(contentView.frame.size, view.isOpaque, 0)
         contentView.layer.render(in: UIGraphicsGetCurrentContext()!)
         guard let image = UIGraphicsGetImageFromCurrentImageContext() else
@@ -153,6 +137,7 @@ class ViewController: UIViewController {
     
     // MARK: Alert Function
     func alerteAction() {
+        // Show an alert to user
         let alerteActionSheet = UIAlertController(title: "Take a picture", message: "choose the media", preferredStyle: .actionSheet)
         let gallery = UIAlertAction(title: "Photos Library", style: .default) { (action) in
             if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
@@ -171,144 +156,158 @@ class ViewController: UIViewController {
     }
     
     // MARK: Layout Function
-    func layoutFirstView() {
-        selectedLayout1.isHidden = false
-        selectedLayout2.isHidden = true
-        selectedLayout3.isHidden = true
+    private func layoutFirstView() {
+        // First layout in grid when user push on LayoutView1 button
         if UIDevice.current.orientation.isPortrait {
+            // disposition when device is portrait
             // Button 1
             addPicture1.frame = CGRect(x: 15, y: 15, width: 270, height: 130)
             pictureView1.frame = addPicture1.frame
             // button 2
-            addPicture2.frame = CGRect(x: 15, y: contentView.frame.height - 145, width: 130, height: 130)
+            addPicture2.frame = CGRect(x: 15, y: 155, width: 130, height: 130)
             pictureView2.frame = addPicture2.frame
             // Button 3
-            addPicture3.frame = CGRect(x: contentView.frame.width - 145, y: contentView.frame.height - 145, width: 130, height: 130)
+            addPicture3.frame = CGRect(x: 155, y: 155, width: 130, height: 130)
             pictureView3.frame = addPicture3.frame
             // Button 4
+            addPicture4.frame = CGRect(x: 285, y: 15, width: 0, height: 130)
+            pictureView4.frame = addPicture4.frame
             addPicture4.isHidden = true
             pictureView4.isHidden = true
             
-        } else if UIDevice.current.orientation.isLandscape{
+        } else if UIDevice.current.orientation.isLandscape {
+            // layout when device is landscape
             // Button 1
             addPicture1.frame = CGRect(x: 10, y: 10, width: 230, height: 110)
             pictureView1.frame = addPicture1.frame
             // button 2
-            addPicture2.frame = CGRect(x: 10, y: contentView.frame.height - 120, width: 110, height: 110)
+            addPicture2.frame = CGRect(x: 10, y: 130, width: 110, height: 110)
             pictureView2.frame = addPicture2.frame
             // Button 3
-            addPicture3.frame = CGRect(x: contentView.frame.width - 120, y: contentView.frame.height - 120, width: 110, height: 110)
+            addPicture3.frame = CGRect(x: 130, y: 130, width: 110, height: 110)
             pictureView3.frame = addPicture3.frame
             // Button 4
+            addPicture4.frame = CGRect(x: 240, y: 10, width: 0, height: 130)
+            pictureView4.frame = addPicture4.frame
             addPicture4.isHidden = true
             pictureView4.isHidden = true
         }
-        
     }
     
-    func layoutSecondView() {
-        selectedLayout1.isHidden = true
-        selectedLayout2.isHidden = false
-        selectedLayout3.isHidden = true
-        if UIDevice.current.orientation.isPortrait {
+    private func layoutSecondView() {
+        // second layout in grid when user push on LayoutView2 button
+        if UIDevice.current.orientation.isPortrait || UIDevice.current.orientation.isFlat{
+            // layout when device is portrait
             // Button 1
             addPicture1.frame = CGRect(x: 15, y: 15, width: 130, height: 130)
             pictureView1.frame = addPicture1.frame
             // Button 2
-            addPicture2.frame = CGRect(x: contentView.frame.width - 145, y: 15, width: 130, height: 130)
+            addPicture2.frame = CGRect(x: 155, y: 15, width: 130, height: 130)
             pictureView2.frame = addPicture2.frame
             // Button 3
-            addPicture3.frame = CGRect(x: 15, y: contentView.frame.height - 145, width: 270, height: 130)
+            addPicture3.frame = CGRect(x: 15, y: 155, width: 270, height: 130)
             pictureView3.frame = addPicture3.frame
             // Button 4
+            addPicture4.frame = CGRect(x: 285, y: 15, width: 0, height: 130)
+            pictureView4.frame = addPicture4.frame
             pictureView4.isHidden = true
             addPicture4.isHidden = true
             
        } else if UIDevice.current.orientation.isLandscape {
+            // layout when device is landscape
+            // Button 1
             addPicture1.frame = CGRect(x: 10, y: 10, width: 110, height: 110)
             pictureView1.frame = addPicture1.frame
             // Button 2
-            addPicture2.frame = CGRect(x: contentView.frame.width - 120, y: 10, width: 110, height: 110)
+            addPicture2.frame = CGRect(x: 130, y: 10, width: 110, height: 110)
             pictureView2.frame = addPicture2.frame
             // Button 3
-            addPicture3.frame = CGRect(x: 10, y: contentView.frame.height - 120, width: 230, height: 110)
+            addPicture3.frame = CGRect(x: 10, y: 130, width: 230, height: 110)
             pictureView3.frame = addPicture3.frame
             // Button 4
+            addPicture4.frame = CGRect(x: 240, y: 10, width: 0, height: 110)
+            pictureView4.frame = addPicture4.frame
             pictureView4.isHidden = true
             addPicture4.isHidden = true
         }
     }
     
     func layoutThirdView() {
-        selectedLayout1.isHidden = true
-        selectedLayout2.isHidden = true
-        selectedLayout3.isHidden = false
+        // second layout in grid when user push on LayoutView3 button
         if UIDevice.current.orientation.isPortrait {
+            // layout when device is portrait
             // Button 1
             addPicture1.frame = CGRect(x: 15,y: 15,width: 130,height: 130)
             pictureView1.frame = addPicture1.frame
             // Button 2
-            addPicture2.frame = CGRect(x: contentView.frame.width - 145,y: 15,width: 130,height: 130)
+            addPicture2.frame = CGRect(x: 155,y: 15,width: 130,height: 130)
             pictureView2.frame = addPicture2.frame
             // Button 3
-            addPicture3.frame = CGRect(x: 15,y: contentView.frame.height - 145,width: 130,height: 130)
+            addPicture3.frame = CGRect(x: 15,y: 155,width: 130,height: 130)
             pictureView3.frame = addPicture3.frame
             // Button 4
             addPicture4.isHidden = false
             pictureView4.isHidden = false
-            addPicture4.frame = CGRect(x: contentView.frame.width - 145,y: contentView.frame.height - 145,width: 130,height: 130)
+            addPicture4.frame = CGRect(x: 155,y: 155,width: 130,height: 130)
             pictureView4.frame = addPicture4.frame
         } else if UIDevice.current.orientation.isLandscape {
+            // layout when device is landscape
             // Button 1
             addPicture1.frame = CGRect(x: 10,y: 10,width: 110,height: 110)
             pictureView1.frame = addPicture1.frame
             // Button 2
-            addPicture2.isHidden = false
-            pictureView2.isHidden = false
-            addPicture2.frame = CGRect(x: contentView.frame.width - 120,y: 10,width: 110,height: 110)
+            addPicture2.frame = CGRect(x: 130,y: 10,width: 110,height: 110)
             pictureView2.frame = addPicture2.frame
             // Button 3
-            addPicture3.frame = CGRect(x: 10,y: contentView.frame.height - 120,width: 110,height: 110)
+            addPicture3.frame = CGRect(x: 10,y: 130,width: 110,height: 110)
             pictureView3.frame = addPicture3.frame
             // Button 4
             addPicture4.isHidden = false
             pictureView4.isHidden = false
-            addPicture4.frame = CGRect(x: contentView.frame.width - 120,y: contentView.frame.height - 120,width: 110,height: 110)
+            addPicture4.frame = CGRect(x: 130,y: 130,width: 110,height: 110)
             pictureView4.frame = addPicture4.frame
         }
     }
     
         // MARK: Button Action
     @IBAction func layoutView1(_ sender: Any) {
+        selectedLayout1.isHidden = false
+        selectedLayout2.isHidden = true
+        selectedLayout3.isHidden = true
         layoutFirstView()
     }
     
     @IBAction func layoutView2(_ sender: Any) {
+        selectedLayout1.isHidden = true
+        selectedLayout2.isHidden = false
+        selectedLayout3.isHidden = true
         layoutSecondView()
     }
     
     @IBAction func layoutView3(_ sender: Any) {
+        selectedLayout1.isHidden = true
+        selectedLayout2.isHidden = true
+        selectedLayout3.isHidden = false
         layoutThirdView()
     }
 
     @IBAction func takePicture1(_ sender: addPhotoButton) {
-        imageTemp = pictureView1
+        imageTmp = pictureView1
         alerteAction()
     }
     
     @IBAction func takePicture2(_ sender: addPhotoButton) {
-        imageTemp = pictureView2
+        imageTmp = pictureView2
         alerteAction()
     }
     
     @IBAction func takePicture3(_ sender: addPhotoButton) {
-        imageTemp = pictureView3
+        imageTmp = pictureView3
         alerteAction()
     }
     
-    
     @IBAction func takePicture4(_ sender: addPhotoButton) {
-        imageTemp = pictureView4
+        imageTmp = pictureView4
         alerteAction()
     }
 }
@@ -316,9 +315,9 @@ class ViewController: UIViewController {
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let edite = info[.editedImage] as? UIImage {
-            imageTemp.image = edite
+            imageTmp.image = edite
         } else if let originale = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            imageTemp.image = originale
+            imageTmp.image = originale
         }
         dismiss(animated: true, completion: nil)
     }
