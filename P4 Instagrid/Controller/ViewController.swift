@@ -10,48 +10,43 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    
     @IBOutlet weak var contentView: UIView!
-    
-    @IBOutlet weak var addPicture1: addPhotoButton!
-    @IBOutlet weak var addPicture2: addPhotoButton!
-    @IBOutlet weak var addPicture3: addPhotoButton!
-    @IBOutlet weak var addPicture4: addPhotoButton!
-    
     @IBOutlet weak var swipeUpLabel: UILabel!
-    
     @IBOutlet weak var swipeView: ArrowSwipe!
-    
-    @IBOutlet weak var pictureView1: UIImageView!
-    @IBOutlet weak var pictureView2: UIImageView!
-    @IBOutlet weak var pictureView3: UIImageView!
-    @IBOutlet weak var pictureView4: UIImageView!
     
     @IBOutlet weak var selectedLayout1: UIImageView!
     @IBOutlet weak var selectedLayout2: UIImageView!
     @IBOutlet weak var selectedLayout3: UIImageView!
     
+    let pictureView1 = UIImageView()
+    let pictureView2 = UIImageView()
+    let pictureView3 = UIImageView()
+    let pictureView4 = UIImageView()
+    
     var imageTmp =  UIImageView()
     var imagePicker = UIImagePickerController()
     enum ViewDirection { case out, backIn }
     
+    let addPicture1 = addPhotoButton()
+    let addPicture2 = addPhotoButton()
+    let addPicture3 = addPhotoButton()
+    let addPicture4 = addPhotoButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
+        // set up first
         imagePicker.delegate = self
         // alow user to editing picture's choice
         imagePicker.allowsEditing = true
         // add swipe gesture
         createSwipeGesture()
     }
-    
+
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
-        selectedLayout1.isHidden = false
-        selectedLayout2.isHidden = true
-        selectedLayout3.isHidden = true
-        addPicture4.isHidden = true
-        pictureView4.isHidden = true
         orientationSwipe()
+        updateFrame()
     }
     
     func orientationSwipe() {
@@ -64,6 +59,26 @@ class ViewController: UIViewController {
             swipeView.image = UIImage(named:"Arrow Left.png")
             swipeUpLabel.text = "Swipe left to share"
         }
+    }
+    
+    func setupView(){
+        contentView.addSubview(addPicture1)
+        contentView.addSubview(addPicture2)
+        contentView.addSubview(addPicture3)
+        contentView.addSubview(addPicture4)
+        contentView.addSubview(pictureView1)
+        contentView.addSubview(pictureView2)
+        contentView.addSubview(pictureView3)
+        contentView.addSubview(pictureView4)
+        pictureView1.isHidden = false
+        pictureView2.isHidden = false
+        pictureView3.isHidden = false
+        pictureView4.isHidden = true
+        addPicture1.addTarget(self, action: #selector(self.takePicture1(sender:)), for: .touchUpInside)
+        addPicture2.addTarget(self, action: #selector(self.takePicture2(sender:)), for: .touchUpInside)
+        addPicture3.addTarget(self, action: #selector(self.takePicture3(sender:)), for: .touchUpInside)
+        addPicture4.addTarget(self, action: #selector(self.takePicture4(sender:)), for: .touchUpInside)
+        layoutFirstView()
     }
     
     // MARK:Swip function
@@ -94,11 +109,9 @@ class ViewController: UIViewController {
                 self.contentView.transform = CGAffineTransform(translationX: 0, y: -self.view.frame.height)
             }
         case .backIn:
-            UIView.animate(withDuration: 0.5,
-                           delay: 0.0,
-                           options: [],
-                           animations: { self.contentView.transform = .identity},
-                           completion: nil)
+            UIView.animate(withDuration: 0.5, delay: 0.0, options: [], animations: { self.contentView.transform = .identity
+            }
+                ,completion: nil)
             }
         }
     private func moveViewHorizontally(movement: ViewDirection) {
@@ -109,11 +122,9 @@ class ViewController: UIViewController {
                 self.contentView.transform = CGAffineTransform(translationX: -self.view.frame.width, y: 0)
             }
         case .backIn:
-            UIView.animate(withDuration: 0.5,
-                           delay: 0.0,
-                           options: [],
-                           animations: { self.contentView.transform = .identity},
-                           completion: nil)
+            UIView.animate(withDuration: 0.5, delay: 0.0, options: [], animations: { self.contentView.transform = .identity
+            }
+                ,completion: nil)
         }
     }
     
@@ -128,7 +139,10 @@ class ViewController: UIViewController {
         UIGraphicsBeginImageContextWithOptions(contentView.frame.size, view.isOpaque, 0)
         contentView.layer.render(in: UIGraphicsGetCurrentContext()!)
         guard let image = UIGraphicsGetImageFromCurrentImageContext() else
-        { return }
+        {
+            return
+            
+        }
         UIGraphicsEndImageContext()
         let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         activityViewController.completionWithItemsHandler = {(UIActivityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
@@ -160,115 +174,57 @@ class ViewController: UIViewController {
     // MARK: Layout Function
     private func layoutFirstView() {
         // First layout in grid when user push on LayoutView1 button
-        if UIDevice.current.orientation.isPortrait {
-            // disposition when device is portrait
-            // Button 1
-            addPicture1.frame = CGRect(x: 15, y: 15, width: 270, height: 130)
-            pictureView1.frame = addPicture1.frame
-            // button 2
-            addPicture2.frame = CGRect(x: 15, y: 155, width: 130, height: 130)
-            pictureView2.frame = addPicture2.frame
-            // Button 3
-            addPicture3.frame = CGRect(x: 155, y: 155, width: 130, height: 130)
-            pictureView3.frame = addPicture3.frame
-            // Button 4
-            addPicture4.frame = CGRect(x: 285, y: 15, width: 0, height: 130)
-            pictureView4.frame = addPicture4.frame
-            addPicture4.isHidden = true
-            pictureView4.isHidden = true
-            
-        } else if UIDevice.current.orientation.isLandscape {
-            // layout when device is landscape
-            // Button 1
-            addPicture1.frame = CGRect(x: 10, y: 10, width: 230, height: 110)
-            pictureView1.frame = addPicture1.frame
-            // button 2
-            addPicture2.frame = CGRect(x: 10, y: 130, width: 110, height: 110)
-            pictureView2.frame = addPicture2.frame
-            // Button 3
-            addPicture3.frame = CGRect(x: 130, y: 130, width: 110, height: 110)
-            pictureView3.frame = addPicture3.frame
-            // Button 4
-            addPicture4.frame = CGRect(x: 240, y: 10, width: 0, height: 130)
-            pictureView4.frame = addPicture4.frame
-            addPicture4.isHidden = true
-            pictureView4.isHidden = true
-        }
+        addPicture1.frame = CGRect(x: 15, y: 15, width: contentView.frame.width - 30, height: (contentView.frame.height / 2 ) - 20)
+        // button 2
+        addPicture2.frame = CGRect(x: 15, y: addPicture1.frame.height + 25 , width: (contentView.frame.width / 2 ) - 20, height: addPicture1.frame.height)
+        // Button 3
+        addPicture3.frame = CGRect(x: addPicture2.frame.width + 25, y: addPicture1.frame.height + 25, width: addPicture2.frame.width, height: addPicture2.frame.height)
+        // Button 4
+        addPicture4.frame = CGRect(x: addPicture1.frame.width + 15, y: 15, width: 0, height: addPicture1.frame.height)
+        addPicture4.isHidden = true
+        pictureView4.isHidden = true
+        updateFrame()
     }
     
     private func layoutSecondView() {
         // second layout in grid when user push on LayoutView2 button
-        if UIDevice.current.orientation.isPortrait || UIDevice.current.orientation.isFlat{
-            // layout when device is portrait
-            // Button 1
-            addPicture1.frame = CGRect(x: 15, y: 15, width: 130, height: 130)
-            pictureView1.frame = addPicture1.frame
-            // Button 2
-            addPicture2.frame = CGRect(x: 155, y: 15, width: 130, height: 130)
-            pictureView2.frame = addPicture2.frame
-            // Button 3
-            addPicture3.frame = CGRect(x: 15, y: 155, width: 270, height: 130)
-            pictureView3.frame = addPicture3.frame
-            // Button 4
-            addPicture4.frame = CGRect(x: 285, y: 15, width: 0, height: 130)
-            pictureView4.frame = addPicture4.frame
-            pictureView4.isHidden = true
-            addPicture4.isHidden = true
-            
-       } else if UIDevice.current.orientation.isLandscape {
-            // layout when device is landscape
-            // Button 1
-            addPicture1.frame = CGRect(x: 10, y: 10, width: 110, height: 110)
-            pictureView1.frame = addPicture1.frame
-            // Button 2
-            addPicture2.frame = CGRect(x: 130, y: 10, width: 110, height: 110)
-            pictureView2.frame = addPicture2.frame
-            // Button 3
-            addPicture3.frame = CGRect(x: 10, y: 130, width: 230, height: 110)
-            pictureView3.frame = addPicture3.frame
-            // Button 4
-            addPicture4.frame = CGRect(x: 240, y: 10, width: 0, height: 110)
-            pictureView4.frame = addPicture4.frame
-            pictureView4.isHidden = true
-            addPicture4.isHidden = true
-        }
+        // Button 1
+        addPicture1.frame = CGRect(x: 15, y: 15, width: (contentView.frame.width / 2) - 20, height: (contentView.frame.height / 2) - 20)
+        // Button 2
+        addPicture2.frame = CGRect(x: addPicture1.frame.width + 25, y: 15, width: addPicture1.frame.width, height: addPicture1.frame.height)
+        // Button 3
+        addPicture3.frame = CGRect(x: 15, y: addPicture1.frame.height + 25, width: contentView.frame.height - 30, height: addPicture1.frame.height)
+        // Button 4
+        addPicture4.frame = CGRect(x: 15, y: 15, width: 0, height: addPicture1.frame.height)
+        pictureView4.isHidden = true
+        addPicture4.isHidden = true
+        updateFrame()
     }
     
     private func layoutThirdView() {
         // third layout in grid when user push on LayoutView3 button
-        if UIDevice.current.orientation.isPortrait {
-            // layout when device is portrait
-            // Button 1
-            addPicture1.frame = CGRect(x: 15,y: 15,width: 130,height: 130)
-            pictureView1.frame = addPicture1.frame
-            // Button 2
-            addPicture2.frame = CGRect(x: 155,y: 15,width: 130,height: 130)
-            pictureView2.frame = addPicture2.frame
-            // Button 3
-            addPicture3.frame = CGRect(x: 15,y: 155,width: 130,height: 130)
-            pictureView3.frame = addPicture3.frame
-            // Button 4
-            addPicture4.isHidden = false
-            pictureView4.isHidden = false
-            addPicture4.frame = CGRect(x: 155,y: 155,width: 130,height: 130)
-            pictureView4.frame = addPicture4.frame
-        } else if UIDevice.current.orientation.isLandscape {
-            // layout when device is landscape
-            // Button 1
-            addPicture1.frame = CGRect(x: 10,y: 10,width: 110,height: 110)
-            pictureView1.frame = addPicture1.frame
-            // Button 2
-            addPicture2.frame = CGRect(x: 130,y: 10,width: 110,height: 110)
-            pictureView2.frame = addPicture2.frame
-            // Button 3
-            addPicture3.frame = CGRect(x: 10,y: 130,width: 110,height: 110)
-            pictureView3.frame = addPicture3.frame
-            // Button 4
-            addPicture4.isHidden = false
-            pictureView4.isHidden = false
-            addPicture4.frame = CGRect(x: 130,y: 130,width: 110,height: 110)
-            pictureView4.frame = addPicture4.frame
-        }
+        // Button 1
+        addPicture1.frame = CGRect(x: 15,y: 15,width: (contentView.frame.width / 2) - 20, height: (contentView.frame.height / 2) - 20)
+        // Button 2
+        addPicture2.frame = CGRect(x: addPicture1.frame.width + 25, y: 15, width: addPicture1.frame.width, height: addPicture1.frame.height)
+        // Button 3
+        addPicture3.frame = CGRect(x: 15, y: addPicture1.frame.height + 25, width: addPicture1.frame.width, height: addPicture1.frame.height)
+        // Button 4
+        addPicture4.isHidden = false
+        pictureView4.isHidden = false
+        addPicture4.frame = CGRect(x: addPicture3.frame.width + 25 ,y: addPicture2.frame.height + 25 ,width: addPicture2.frame.width ,height: addPicture4.frame.height)
+        updateFrame()
+    }
+    
+    private func updateFrame(){
+        pictureView1.frame = addPicture1.frame
+        pictureView1.contentMode = .scaleToFill
+        pictureView2.frame = addPicture2.frame
+        pictureView1.contentMode = .scaleToFill
+        pictureView3.frame = addPicture3.frame
+        pictureView1.contentMode = .scaleToFill
+        pictureView4.frame = addPicture4.frame
+        pictureView1.contentMode = .scaleToFill
     }
     
         // MARK: Button Action
@@ -292,25 +248,29 @@ class ViewController: UIViewController {
         selectedLayout3.isHidden = false
         layoutThirdView()
     }
-
-    @IBAction func takePicture1(_ sender: addPhotoButton) {
+    
+    @objc func takePicture1(sender: addPhotoButton){
+        alerteAction()
         imageTmp = pictureView1
-        alerteAction()
+        pictureView1.frame = addPicture1.frame
     }
     
-    @IBAction func takePicture2(_ sender: addPhotoButton) {
+    @objc func takePicture2(sender: addPhotoButton){
+        alerteAction()
         imageTmp = pictureView2
-        alerteAction()
+        pictureView2.frame = addPicture2.frame
     }
     
-    @IBAction func takePicture3(_ sender: addPhotoButton) {
+    @objc func takePicture3(sender: addPhotoButton){
+        alerteAction()
         imageTmp = pictureView3
-        alerteAction()
+        pictureView3.frame = addPicture3.frame
     }
     
-    @IBAction func takePicture4(_ sender: addPhotoButton) {
-        imageTmp = pictureView4
+    @objc func takePicture4(sender: addPhotoButton){
         alerteAction()
+        imageTmp = pictureView4
+        pictureView4.frame = addPicture4.frame
     }
 }
 
