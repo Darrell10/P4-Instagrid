@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina5_5" orientation="landscape" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
@@ -21,11 +21,11 @@
             <objects>
                 <viewController autoresizesArchivedViewToFullSize="NO" id="BYZ-38-t0r" customClass="ViewController" customModule="Instagrid" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UCA-DY-mUj">
-                                <rect key="frame" x="243" y="10" width="250" height="26"/>
+                                <rect key="frame" x="57" y="54" width="300" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="1Do-SU-ZGr"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="E6W-pC-uaZ"/>
@@ -52,7 +52,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZQ-zv-GOA">
-                                <rect key="frame" x="15" y="192" width="135.66666666666666" height="30"/>
+                                <rect key="frame" x="57" y="258" width="300" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="9qe-h3-Ivg"/>
                                     <constraint firstAttribute="width" constant="300" id="n3R-zu-DK9"/>
@@ -78,7 +78,7 @@
                                 </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zq0-wd-9vA">
-                                <rect key="frame" x="636" y="67" width="80" height="80"/>
+                                <rect key="frame" x="67" y="762" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="HUT-RN-JeI"/>
                                     <constraint firstAttribute="height" constant="80" id="L9y-RF-ubC"/>
@@ -105,7 +105,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Selected" translatesAutoresizingMaskIntoConstraints="NO" id="LFe-ug-7Qp">
-                                <rect key="frame" x="636" y="67" width="80" height="80"/>
+                                <rect key="frame" x="67" y="762" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="3Vg-81-JKl"/>
                                     <constraint firstAttribute="height" constant="80" id="HuN-N0-ySb"/>
@@ -128,7 +128,7 @@
                                 </variation>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y5Z-zD-FZx">
-                                <rect key="frame" x="636" y="167" width="80" height="80"/>
+                                <rect key="frame" x="167" y="762" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="BEt-9N-Arg"/>
                                     <constraint firstAttribute="height" constant="80" id="Xn8-jN-FLq"/>
@@ -155,7 +155,7 @@
                                 </connections>
                             </button>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Selected" translatesAutoresizingMaskIntoConstraints="NO" id="nEb-P0-add">
-                                <rect key="frame" x="636" y="167" width="80" height="80"/>
+                                <rect key="frame" x="167" y="762" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="XTA-IT-7HW"/>
                                     <constraint firstAttribute="height" constant="80" id="ZV4-h2-5KQ"/>
@@ -178,7 +178,7 @@
                                 </variation>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3qC-sk-z8m">
-                                <rect key="frame" x="636" y="267" width="80" height="80"/>
+                                <rect key="frame" x="267" y="762" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="9ye-i2-gW6"/>
                                     <constraint firstAttribute="height" constant="80" id="ER5-EQ-XLd"/>
@@ -205,7 +205,7 @@
                                 </connections>
                             </button>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Selected" translatesAutoresizingMaskIntoConstraints="NO" id="mkn-rq-a0a">
-                                <rect key="frame" x="636" y="267" width="80" height="80"/>
+                                <rect key="frame" x="267" y="762" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="9JF-7c-0Qz"/>
                                     <constraint firstAttribute="width" constant="80" id="VUs-Qg-3Xt"/>
@@ -228,8 +228,9 @@
                                 </variation>
                             </imageView>
                             <view autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d39-wf-rMU">
-                                <rect key="frame" x="218" y="57" width="300" height="300"/>
+                                <rect key="frame" x="57" y="298" width="300" height="300"/>
                                 <color key="backgroundColor" red="0.036484893409999997" green="0.37614470719999998" blue="0.56474459170000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="d39-wf-rMU" secondAttribute="height" multiplier="1:1" id="05i-Uf-1O9"/>
                                     <constraint firstAttribute="width" secondItem="d39-wf-rMU" secondAttribute="height" multiplier="1:1" id="4fq-HO-AeR"/>
@@ -247,9 +248,12 @@
                                         <exclude reference="qnk-9d-rs4"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="RtH-wW-Pel" appends="YES" id="Yel-bq-x4z"/>
+                                </connections>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Gj-tD-pub" customClass="ArrowSwipe" customModule="Instagrid">
-                                <rect key="frame" x="76.333333333333329" y="172" width="13" height="10"/>
+                                <rect key="frame" x="200.66666666666666" y="243" width="13" height="10"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="13" id="ABg-3s-tFH"/>
                                     <constraint firstAttribute="width" constant="13" id="GGq-9y-adB"/>
@@ -324,17 +328,17 @@
                                 <exclude reference="GTn-bI-O8c"/>
                                 <exclude reference="HSR-Ze-WMd"/>
                                 <exclude reference="qBz-Cq-cqy"/>
+                                <exclude reference="koz-TB-cj7"/>
+                                <exclude reference="tDJ-ha-rNr"/>
                                 <exclude reference="C7J-01-BM1"/>
                                 <exclude reference="VQh-ML-Fv1"/>
                                 <exclude reference="diL-PD-arc"/>
-                                <exclude reference="pzB-Tr-zrz"/>
                                 <exclude reference="P0H-im-9ay"/>
                                 <exclude reference="hSW-q8-BBV"/>
                                 <exclude reference="t02-eR-c2e"/>
                                 <exclude reference="wdX-9a-Ans"/>
                                 <exclude reference="yOq-1N-d9q"/>
-                                <exclude reference="koz-TB-cj7"/>
-                                <exclude reference="tDJ-ha-rNr"/>
+                                <exclude reference="pzB-Tr-zrz"/>
                                 <exclude reference="Z3v-I7-7GQ"/>
                                 <exclude reference="zpa-ad-aDQ"/>
                                 <exclude reference="Rbh-gc-dNP"/>
@@ -354,13 +358,15 @@
                                 <exclude reference="Wkh-EM-5EZ"/>
                                 <exclude reference="n8n-l5-FaZ"/>
                                 <include reference="qBz-Cq-cqy"/>
+                                <exclude reference="8pp-qA-bWY"/>
+                                <exclude reference="90O-FT-ef4"/>
+                                <include reference="koz-TB-cj7"/>
+                                <include reference="tDJ-ha-rNr"/>
                                 <exclude reference="67Z-ew-cDK"/>
                                 <include reference="C7J-01-BM1"/>
                                 <include reference="VQh-ML-Fv1"/>
                                 <include reference="diL-PD-arc"/>
                                 <exclude reference="s8j-ti-AXY"/>
-                                <exclude reference="htz-RQ-m6j"/>
-                                <include reference="pzB-Tr-zrz"/>
                                 <exclude reference="7wR-eC-Ar0"/>
                                 <exclude reference="DZi-ci-vPA"/>
                                 <include reference="P0H-im-9ay"/>
@@ -369,10 +375,8 @@
                                 <include reference="t02-eR-c2e"/>
                                 <include reference="wdX-9a-Ans"/>
                                 <include reference="yOq-1N-d9q"/>
-                                <exclude reference="8pp-qA-bWY"/>
-                                <exclude reference="90O-FT-ef4"/>
-                                <include reference="koz-TB-cj7"/>
-                                <include reference="tDJ-ha-rNr"/>
+                                <exclude reference="htz-RQ-m6j"/>
+                                <include reference="pzB-Tr-zrz"/>
                                 <exclude reference="FU1-qU-8bL"/>
                                 <exclude reference="GX3-HO-0BP"/>
                                 <include reference="Z3v-I7-7GQ"/>
@@ -395,6 +399,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="GridSwipe" destination="RtH-wW-Pel" id="8uD-Id-XSP"/>
                         <outlet property="contentView" destination="d39-wf-rMU" id="QsY-9R-0af"/>
                         <outlet property="selectedLayout1" destination="LFe-ug-7Qp" id="isS-N5-JBE"/>
                         <outlet property="selectedLayout2" destination="nEb-P0-add" id="MhI-EE-XHZ"/>
@@ -404,6 +409,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="up" id="RtH-wW-Pel">
+                    <connections>
+                        <action selector="swipeGesure:" destination="BYZ-38-t0r" id="Fer-l6-4KE"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="126.08695652173914" y="124.55357142857142"/>
         </scene>

@@ -65,8 +65,6 @@
 		B6504D5223362189007D9060 /* Modele */ = {
 			isa = PBXGroup;
 			children = (
-				B6504D5323362189007D9060 /* addPhotoButton.swift */,
-				B6E662A62337B9D600907742 /* ArrowSwipe.swift */,
 			);
 			path = Modele;
 			sourceTree = "<group>";
@@ -87,6 +85,8 @@
 		B6504D5C23362189007D9060 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B6E662A62337B9D600907742 /* ArrowSwipe.swift */,
+				B6504D5323362189007D9060 /* addPhotoButton.swift */,
 				B6504D5D23362189007D9060 /* Main.storyboard */,
 			);
 			path = View;

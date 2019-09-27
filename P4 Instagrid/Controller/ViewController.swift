@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var selectedLayout2: UIImageView!
     @IBOutlet weak var selectedLayout3: UIImageView!
     
+    @IBOutlet var GridSwipe: UISwipeGestureRecognizer!
+    
     let pictureView1 = UIImageView()
     let pictureView2 = UIImageView()
     let pictureView3 = UIImageView()
@@ -39,8 +41,11 @@ class ViewController: UIViewController {
         imagePicker.delegate = self
         // alow user to editing picture's choice
         imagePicker.allowsEditing = true
-        // add swipe gesture
-        createSwipeGesture()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        orientationSwipe()
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -54,10 +59,12 @@ class ViewController: UIViewController {
             // if device is portrait
             swipeView.image = UIImage(named:"Arrow Up.png")
             swipeUpLabel.text = "Swipe up to share"
+            GridSwipe.direction = .up
         } else if UIDevice.current.orientation.isLandscape {
             // else if device is portrait
             swipeView.image = UIImage(named:"Arrow Left.png")
             swipeUpLabel.text = "Swipe left to share"
+            GridSwipe.direction = .left
         }
     }
     
@@ -81,24 +88,7 @@ class ViewController: UIViewController {
         layoutFirstView()
     }
     
-    // MARK:Swip function
-    private func createSwipeGesture() {
-            let swipeGestureUp = UISwipeGestureRecognizer(target: self, action: #selector(swipedByUser(_:)))
-            swipeGestureUp.direction = .up
-            self.contentView.addGestureRecognizer(swipeGestureUp)
-            let swipeGestureLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipedByUser(_:)))
-            swipeGestureLeft.direction = .left
-            self.contentView.addGestureRecognizer(swipeGestureLeft)
-    }
     
-    @objc func swipedByUser(_ gesture: UISwipeGestureRecognizer) {
-        convertViewToImage()
-        if UIDevice.current.orientation.isPortrait {
-            moveViewVertically(movement: .out)
-        } else {
-            moveViewHorizontally(movement: .out)
-        }
-    }
     
     // MARK:Animation contentView
     private func moveViewVertically(movement: ViewDirection) {
@@ -272,6 +262,17 @@ class ViewController: UIViewController {
         imageTmp = pictureView4
         pictureView4.frame = addPicture4.frame
     }
+    
+    // MARK:Swip function
+    @IBAction func swipeGesure(_ sender: UISwipeGestureRecognizer) {
+        convertViewToImage()
+        if UIDevice.current.orientation.isPortrait {
+            moveViewVertically(movement: .out)
+        } else if UIDevice.current.orientation.isLandscape {
+            moveViewHorizontally(movement: .out)
+        }
+    }
+    
 }
 
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
